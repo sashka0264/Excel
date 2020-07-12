@@ -21,17 +21,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48866ac5-1402-49de-b230-0e9dc39ce772" name="Default Changelist" comment="разделил функционал для resize, обнаружил 1 баг">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/table/TableSelection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/Emitter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/Table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/table.functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/table/table.template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/table.template.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ExcelComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ExcelComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/dom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/dom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JS-interview/answers/patterns.md" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -91,7 +82,7 @@
       <workItem from="1594292975809" duration="2551000" />
       <workItem from="1594368538901" duration="8050000" />
       <workItem from="1594475528075" duration="1911000" />
-      <workItem from="1594539196807" duration="13533000" />
+      <workItem from="1594539196807" duration="19646000" />
     </task>
     <task id="LOCAL-00001" summary="дописывал функционал для resize">
       <created>1592680757970</created>
@@ -145,10 +136,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1592687257794" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1593068608655">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1594577920692">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593068608655" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594577920692" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1592667965886">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

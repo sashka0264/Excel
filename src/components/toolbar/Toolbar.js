@@ -3,15 +3,16 @@ import ExcelComponent from '@core/ExcelComponent';
 class Toolbar extends ExcelComponent {
   static className = 'excel__toolbar';
 
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
       name: 'Toolbar',
-      listeners: ['click']
+      listeners: ['click'],
+      ...options
     });
   }
 
   onClick(e) {
-    console.log(e.target)
+    console.log(e.target);
   }
 
   toHTML() { 

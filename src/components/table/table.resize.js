@@ -31,8 +31,12 @@ export default function resizeHandler($root, e) {
   document.onmouseup = () => {
     if (type === 'col') {
       $parent.css({width: value + 'px'});
+      console.log($parent);
       $root.findAll(`[data-col="${$parent.data.col}"]`)
-          .forEach((el) => el.style.width = value + 'px');
+          .forEach((el) => {
+            el.style.width = value + 'px';
+            // console.log(`[data-col="${$parent.data.col}"]`);
+          });
     } else {
       $parent.css({height: `${value}px`});
       $root.findAll(`[data-col="${$parent.data.row}"]`)

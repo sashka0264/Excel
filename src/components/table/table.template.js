@@ -1,17 +1,21 @@
-const CODES = {
-  A: 65,
-  Z: 90
-};
+import {ROWS_COUNT, CODES} from '@core/constants';
 
-function toCell(content, index) {
+function toCell(row, col) {
   return `
-    <div class="cell" contenteditable data-col="${index}">${content}</div>
+    <div 
+      class="cell" 
+      contenteditable 
+      data-col="${col}"
+      data-id="${row}:${col}"
+      data-type="cell"
+    >
+    </div>
   `; // для создания полей по типу инпутов
 }
 
 function toColumn(content, index) {
   return `
-    <div class="column" data-type="resizable" data-col="${index}">
+    <div class="column" data-type="resizable" data-col="${index + 1}">
       ${content}
       <div class="col-resize" data-resize="col" data></div>
     </div>
@@ -39,7 +43,7 @@ function toChar(_, index) {
   return String.fromCharCode(CODES.A + index);
 }
 
-export function createTable(rowsCount = 20) {
+export function createTable(rowsCount = ROWS_COUNT) {
   const colsCount = CODES.Z - CODES.A + 1;
   const rows = [];
   const cols = new Array(colsCount)
@@ -49,12 +53,12 @@ export function createTable(rowsCount = 20) {
       .join('');
   rows.push(createRow(cols)); // шапка
   
-  for (let i = 1; i <= rowsCount; i += 1) {
+  for (let row = 1; row <= rowsCount; row += 1) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell)
+        .map((_, col) => toCell(row, col + 1))
         .join('');
-    rows.push(createRow(cells, i));
+    rows.push(createRow(cells, row));
   }
 
   return rows.join('');

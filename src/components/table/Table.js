@@ -8,6 +8,7 @@ import {
 } from '@/components/table/table.functions';
 import {TableSelection} from '@/components/table/TableSelection';
 import {matrix} from '@/components/table/table.functions';
+import * as actions from '@/redux/actions';
 import $ from '@core/dom';
 
 class Table extends ExcelComponent {
@@ -40,16 +41,29 @@ class Table extends ExcelComponent {
     this.$on('formula:done', () => {
       this.selection.current.focus();
     });
+
+    // this.$storeSubscribe((state) => {
+    //   console.log('table', state);
+    // });
   }
 
   selectCell($cell) {
     this.selection.select($cell);
     this.$dispatch('table:select', $cell);
   }
+
+  async resizeTable(e) {
+    try {
+      const data = await resizeHandler(this.$root, e);
+      this.$storeDispatch(actions.tableResize(data));
+    } catch (err) {
+      console.log(`Ошибка резайза: ${err}`);
+    }
+  }
   
   onMousedown(e) {
     if (shouldResize(e)) {
-      resizeHandler(this.$root, e);
+      this.resizeTable(e);
     }
     if (isCell(e)) {
       const $target = $(e.target);
@@ -90,7 +104,9 @@ class Table extends ExcelComponent {
   }
 
   toHTML() { 
-    return createTable();
+    const state = this.store.getState();
+
+    return createTable(50, state);
   }
 }
 

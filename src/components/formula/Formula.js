@@ -23,6 +23,10 @@ class Formula extends ExcelComponent {
     this.$on('table:input', ($cell) => {
       this.$formula.text($cell.text());
     });
+
+    // this.$storeSubscribe((state) => {
+    //   console.log('formula', state);
+    // });
   }
 
   onInput(e) {

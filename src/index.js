@@ -26,12 +26,23 @@ Excel.render, чтобы сделать инстанс класса TableSelecti
 TableSelection мы храним выбранные ячейки
 */
 
-import './scss/index.scss';
 import Excel from '@/components/excel/Excel';
 import Header from '@/components/Header/Header';
 import Toolbar from '@/components/Toolbar/Toolbar';
 import Table from '@/components/Table/Table';
 import Formula from '@/components/Formula/Formula';
+import {createStore} from '@core/createStore';
+import {rootReducer} from '@/redux/rootReducer';
+import {storage} from '@core/utils';
+import {initialState} from '@/redux/initialState';
+import './scss/index.scss';
+
+const store = createStore(rootReducer, initialState);
+
+store.subscribe((state) => {
+  storage('excel-state', state);
+  console.log(state);
+});
 
 const excel = new Excel('#app', {
   components: [
@@ -39,7 +50,8 @@ const excel = new Excel('#app', {
     Toolbar, 
     Formula, 
     Table
-  ]
+  ],
+  store
 });
 
 excel.render();

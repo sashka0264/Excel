@@ -8,16 +8,19 @@ function getHeight(rowState, id) {
   return rowState[id] ? `height: ${rowState[id]}px` : '';
 }
 
-function toCell(row, col, colState) {
+function toCell(row, col, state) {
+  const id = `${row}:${col}`;
+  const value = state.dataState[id] || '';
   return `
     <div 
       class="cell" 
       contenteditable 
       data-col="${col}"
-      data-id="${row}:${col}"
+      data-id="${id}"
       data-type="cell"
-      style="${getWidth(colState, col)}"
+      style="${getWidth(state.colState, col)}"
     >
+    ${value}
     </div>
   `; // для создания полей по типу инпутов
 }
@@ -75,7 +78,7 @@ export function createTable(rowsCount = ROWS_COUNT, state) {
   for (let row = 1; row <= rowsCount; row += 1) {
     const cells = new Array(colsCount)
         .fill('')
-        .map((_, col) => toCell(row, col + 1, state.colState))
+        .map((_, col) => toCell(row, col + 1, state))
         .join('');
 
     rows.push(createRow(cells, row, state.rowState));

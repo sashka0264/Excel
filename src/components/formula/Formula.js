@@ -19,14 +19,7 @@ class Formula extends ExcelComponent {
     this.$on('table:select', ($cell) => {
       this.$formula.text($cell.text());
     });
-
-    this.$on('table:input', ($cell) => {
-      this.$formula.text($cell.text());
-    });
-
-    // this.$storeSubscribe((state) => {
-    //   console.log('formula', state);
-    // });
+    this.$storeSubscribe((state) => this.$formula.text(state.currentText));
   }
 
   onInput(e) {
@@ -40,6 +33,7 @@ class Formula extends ExcelComponent {
       this.$dispatch('formula:done');
     }
   }
+
 
   toHTML() { 
     return `

@@ -34,8 +34,9 @@ class Table extends ExcelComponent {
     super.init(); // вызываем также родительский метод
     this.selectCell(this.$root.find('[data-id="1:1"]'));
 
-    this.$on('formula:input', (data) => {
-      this.selection.current.text(data);
+    this.$on('formula:input', (text) => {
+      this.selection.current.text(text);
+      this.updateStoreText(text);
     });
 
     this.$on('formula:done', () => {
@@ -99,8 +100,13 @@ class Table extends ExcelComponent {
     }
   }
 
+  updateStoreText(text) {
+    this.$storeDispatch(actions.changeText({id: this.selection.current.id(), text}));
+  }
+
   onInput(e) {
-    this.$dispatch('table:input', $(e.target));
+    const text = $(e.target).text();
+    this.updateStoreText(text);
   }
 
   toHTML() { 
